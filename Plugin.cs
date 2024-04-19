@@ -730,7 +730,7 @@ namespace Josiwe.ATS.Cheats
         {
             Instance = this;
             harmony = Harmony.CreateAndPatchAll(typeof(Plugin));
-            Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
+            Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} v{PluginInfo.PLUGIN_VERSION} is loaded!");
         }
 
         private static CheatConfig GetCheatConfig()
