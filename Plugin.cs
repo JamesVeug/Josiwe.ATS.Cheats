@@ -486,11 +486,12 @@ namespace Josiwe.ATS.Cheats
             var currentRewardsAmount = model.effectsTable.amounts.Random()
                 + Serviceable.StateService.Effects.bonusSeasonalRewardsOptions
                 + Serviceable.MetaStateService.Perks.bonusSeasonRewardsAmount;
+            
             // 7 is the max the UI can display, so let's find the right number to add
-            if (currentRewardsAmount < 7)
+            if (currentRewardsAmount < 4)
             {
-                WriteLog($"Generating {7 - currentRewardsAmount} extra pick options for the cornerstones UI");
-                Serviceable.MetaStateService.Perks.bonusSeasonRewardsAmount += 7 - currentRewardsAmount;
+                WriteLog($"Generating {4 - currentRewardsAmount} extra pick options for the cornerstones UI");
+                Serviceable.MetaStateService.Perks.bonusSeasonRewardsAmount += 4 - currentRewardsAmount;
             }
 
             return true; // now run the original method
