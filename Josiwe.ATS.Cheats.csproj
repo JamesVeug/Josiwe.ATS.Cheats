@@ -8,7 +8,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
 	  <!--<StormPath>D:\\GOG\\Against the Storm</StormPath>-->
-	  <StormPath>C:\\Program Files (x86)\\Steam\\steamapps\\common\\Against the Storm</StormPath>
+	  <StormPath>C:\Program Files (x86)\Steam\steamapps\common\Against the Storm</StormPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -48,6 +48,6 @@
 
 	<Copy SourceFiles="@(Assembly)" DestinationFolder="$(StormPath)\BepInEx\plugins" />	
     <Copy SourceFiles="@(Assets)" DestinationFolder="$(StormPath)\BepInEx\plugins\assets\" />
-	<Copy SourceFiles="@(Files)" DestinationFolder="$(StormPath)\BepInEx\plugins" />
+    <Exec Command='call "$(StormPath)/Against The Storm.exe"' IgnoreExitCode="true"/>
   </Target>
 </Project>
