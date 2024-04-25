@@ -1,4 +1,4 @@
-﻿# v1.02 - 25/04/24:
+# v1.02 - 25/04/24:
 - Added BepInEx support for the Configs to work with ThunderStore
 
 # v1.01 - 19/04/24: 
