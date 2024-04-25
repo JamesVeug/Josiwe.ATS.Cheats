@@ -1,4 +1,7 @@
-﻿# v1.01 - 19/04/24: 
+﻿# v1.02 - 25/04/24:
+- Added BepInEx support for the Configs to work with ThunderStore
+
+# v1.01 - 19/04/24: 
 - Fixed infinite loading screen when starting a new settlement
 - Reduced max cornerstones form 7 to 4 (it was going way off the screen) 
 
