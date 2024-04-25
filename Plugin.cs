@@ -22,7 +22,7 @@ namespace Josiwe.ATS.Cheats
     {
         private Harmony harmony;
         public static Plugin Instance;
-        private static readonly CheatConfig _configuration = GetCheatConfig();
+        private static CheatConfig _configuration = null;
 
         #region Camera Controller Mods
         // Increases the zoom limit
@@ -729,19 +729,27 @@ namespace Josiwe.ATS.Cheats
         private void Awake()
         {
             Instance = this;
+            _configuration = GetCheatConfig();
             harmony = Harmony.CreateAndPatchAll(typeof(Plugin));
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} v{PluginInfo.PLUGIN_VERSION} is loaded!");
         }
 
         private static CheatConfig GetCheatConfig()
         {
-            string basePath = Directory.GetCurrentDirectory() + "\\BepInEx\\plugins\\Josiwe.ATS.Cheats.Config.json";
+            string directory = Path.GetDirectoryName(Instance.Info.Location);
+            string fileName = "Josiwe.ATS.Cheats.Config.json";
+            string basePath = directory + "/" + fileName;
+
+            CheatConfig config = null;
+            
             // Tries to load the cheat config from json
             if (File.Exists(basePath))
             {
                 try
                 {
-                    return JsonConvert.DeserializeObject<CheatConfig>(File.ReadAllText(basePath));
+                    WriteLog($"Loading {fileName}");
+                    config = JsonConvert.DeserializeObject<CheatConfig>(File.ReadAllText(basePath));
+                    config.LoadedFromJSON();
                 }
                 catch (Exception ex)
                 {
@@ -750,7 +758,14 @@ namespace Josiwe.ATS.Cheats
                 }
             }
 
-            return null;
+            if (config == null)
+            {
+                WriteLog($"{fileName} not found. Using thunder store config values instead.");
+                config = new CheatConfig();
+            }
+            
+            config.ReadValues();
+            return config;
         }
 
         private static void WriteLog(string message)

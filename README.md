@@ -8,8 +8,8 @@ For the Steam version of the game, this will likely be `C:\Program Files (x86)\S
 The `.dll` file created by this mod (`Josiwe.ATS.Cheats.dll` by default) can then be dropped into the `BepInEx\plugins` subdirectory 
 inside the game directory. You might have to make this directory yourself, or run the game once to have it made automatically.
 
-You'll also need the json configuration file `Josiwe.ATS.Cheats.Config.json` in the same directory. This file can be edited
-to selectively  cheats or modify how they work.
+You can use one of the `.json` files which are preset changes. Put these in the same directory and rename them to `Josiwe.ATS.Cheats.Config.json`.
+If you do not have one and you're using thunderstore then a default one will be made and you can use thunderstore instead.
 
 We've also added example configs to fit a few playstyles! Feel free to replace single lines, or whole sections in the main config file:
 
