@@ -1,0 +1,8 @@
+﻿{
+  "name": "JoswieCheats",
+  "version_number": "1.0.2",
+  "website_url": "https://github.com/Josiwe/Josiwe.ATS.Cheats",
+  "description": "Adds multipliers to adjust the game to your liking! See Thunderstores configs or the git url for more info.",
+  "dependencies": ["BepInEx-BepInExPack-5.4.2100"]
+}
+
