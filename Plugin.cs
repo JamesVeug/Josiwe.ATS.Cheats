@@ -103,7 +103,7 @@ namespace Josiwe.ATS.Cheats
                 return true; // run the original game method
 
             foreach (AscensionModifierModel modifier in Serviceable.BiomeService.Difficulty.modifiers)
-                if (modifier.isEarlyEffect)
+                if (modifier.effect.IsPreGameModifier)
                 {
                     // listing all early effects (only 3 total)
                     // ascension altar (Pioneer), fewer blueprint options (P12) and fewer initial blueprints (P16)
@@ -163,7 +163,7 @@ namespace Josiwe.ATS.Cheats
                 Serviceable.Settings.GetEffect(lateEffect).Apply();
             if (!Serviceable.ConditionsService.IsCustomGame())
                 foreach (AscensionModifierModel modifier in Serviceable.BiomeService.Difficulty.modifiers)
-                    if (!modifier.isEarlyEffect)
+                    if (!modifier.effect.IsPreGameModifier)
                     {
                         // listing all late effects
                         WriteLog("--------------------");
